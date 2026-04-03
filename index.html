@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel Matias | Personal Trainer Niterói</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        :root {
+            --primary: #bef264;
+            --primary-foreground: #09090b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #09090b;
+            color: #f4f4f5;
+            overflow-x: hidden;
+        }
+
+        .text-primary { color: var(--primary); }
+        .bg-primary { background-color: var(--primary); }
+        .text-primary-foreground { color: var(--primary-foreground); }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .high-quality-img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #18181b; }
+        ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #52525b; }
+
+        @keyframes slideInDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-slide-in-down {
+            animation: slideInDown 0.3s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-6">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#home" class="flex flex-col">
+                <span class="text-xl font-bold tracking-tighter text-white">
+                    GABRIEL <span class="text-primary">MATIAS</span>
+                </span>
+                <span class="text-[10px] uppercase tracking-[0.2em] text-zinc-400 font-medium">
+                    Personal Trainer Niterói
+                </span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-sm font-medium text-zinc-300 hover:text-primary transition-colors">Início</a>
+                <a href="#sobre" class="text-sm font-medium text-zinc-300 hover:text-primary transition-colors">Sobre</a>
+                <a href="#servicos" class="text-sm font-medium text-zinc-300 hover:text-primary transition-colors">Serviços</a>
+                <a href="#contato" class="text-sm font-medium text-zinc-300 hover:text-primary transition-colors">Contato</a>
+                <a href="https://wa.me/5521992292188" target="_blank" rel="noopener noreferrer" class="bg-primary text-primary-foreground px-5 py-2 rounded-full text-sm font-bold hover:scale-105 transition-transform">
+                    Começar Agora
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button id="menu-btn" class="md:hidden text-white">
+                <i id="menu-icon" data-lucide="menu" class="w-7 h-7"></i>
+                <i id="x-icon" data-lucide="x" class="w-7 h-7 hidden"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="absolute top-full left-0 right-0 bg-zinc-900 border-b border-zinc-800 md:hidden hidden animate-slide-in-down">
+            <div class="flex flex-col p-6 space-y-4">
+                <a href="#home" class="text-lg font-medium text-zinc-300 hover:text-primary mobile-link">Início</a>
+                <a href="#sobre" class="text-lg font-medium text-zinc-300 hover:text-primary mobile-link">Sobre</a>
+                <a href="#servicos" class="text-lg font-medium text-zinc-300 hover:text-primary mobile-link">Serviços</a>
+                <a href="#contato" class="text-lg font-medium text-zinc-300 hover:text-primary mobile-link">Contato</a>
+                <a href="https://wa.me/5521992292188" target="_blank" rel="noopener noreferrer" class="bg-primary text-primary-foreground px-6 py-3 rounded-xl text-center font-bold">
+                    Falar no WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img 
+                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop" 
+                alt="Gym Background" 
+                class="w-full h-full object-cover opacity-30"
+                referrerpolicy="no-referrer"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/60 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#09090b] via-[#09090b]/20 to-transparent"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl reveal active">
+                <div class="flex items-center space-x-2 mb-6">
+                    <div class="flex text-primary">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <span class="text-zinc-400 text-sm font-medium">Nota 5.0 no Google • Icaraí, Niterói</span>
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
+                    Treinos <span class="text-primary italic">Personalizados</span> em Niterói para Resultados Reais.
+                </h1>
+
+                <p class="text-lg md:text-xl text-zinc-400 mb-10 max-w-2xl leading-relaxed">
+                    Alcance sua melhor versão com acompanhamento profissional de alto nível. 
+                    Treinos presenciais em Icaraí e consultoria online para todo o Brasil.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a 
+                        href="https://wa.me/5521992292188" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="group bg-primary text-primary-foreground px-8 py-4 rounded-full font-bold text-lg flex items-center space-x-2 hover:scale-105 transition-all shadow-[0_0_20px_rgba(190,242,100,0.3)]"
+                    >
+                        <span>Agendar Minha Aula</span>
+                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#servicos" class="text-zinc-300 font-semibold hover:text-white transition-colors flex items-center space-x-2">
+                        <span>Ver Serviços</span>
+                    </a>
+                </div>
+
+                <div class="mt-16 flex items-center space-x-4 text-zinc-500">
+                    <i data-lucide="map-pin" class="text-primary w-5 h-5"></i>
+                    <span class="text-sm font-medium uppercase tracking-widest">Atendimento em Icaraí e Região</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="py-24 bg-zinc-950">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative reveal">
+                    <div class="aspect-[4/5] rounded-3xl overflow-hidden bg-zinc-900 shadow-2xl">
+                        <img 
+                            src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop" 
+                            alt="Personal Training Session" 
+                            class="w-full h-full object-cover"
+                            referrerpolicy="no-referrer"
+                        >
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-8 rounded-3xl shadow-2xl hidden md:block">
+                        <span class="block text-4xl font-black leading-none">100%</span>
+                        <span class="block text-sm font-bold uppercase tracking-tighter mt-1">Foco no Aluno</span>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <span class="text-primary font-bold tracking-widest uppercase text-sm">Diferenciais</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-8">Por que treinar com <span class="text-primary">Gabriel Matias?</span></h2>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="mt-1 bg-primary/10 p-1 rounded-full">
+                                <i data-lucide="check-circle-2" class="text-primary w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Treino 100% Personalizado</h3>
+                                <p class="text-zinc-400 leading-relaxed">Nada de fichas genéricas. Seu treino é construído para o seu corpo e seus objetivos.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="mt-1 bg-primary/10 p-1 rounded-full">
+                                <i data-lucide="check-circle-2" class="text-primary w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Acompanhamento Próximo</h3>
+                                <p class="text-zinc-400 leading-relaxed">Suporte constante para tirar dúvidas e garantir que você mantenha a constância.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="mt-1 bg-primary/10 p-1 rounded-full">
+                                <i data-lucide="check-circle-2" class="text-primary w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Foco em Resultados Reais</h3>
+                                <p class="text-zinc-400 leading-relaxed">Metodologia baseada em ciência para garantir evolução estética e funcional.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="servicos" class="py-24 bg-zinc-900/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-primary font-bold tracking-widest uppercase text-sm">O que eu ofereço</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">Serviços Estratégicos para sua Evolução</h2>
+                <p class="text-zinc-400 text-lg">Seja presencialmente em Niterói ou de forma remota, meu compromisso é entregar um acompanhamento que se adapta à sua vida e gera resultados constantes.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="reveal group p-8 bg-zinc-950 border border-zinc-800 rounded-3xl hover:border-primary/50 transition-all hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-zinc-900 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                        <i data-lucide="dumbbell" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Treino Presencial</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8">Acompanhamento individual em Niterói com foco total na sua execução e segurança.</p>
+                    <a href="https://wa.me/5521992292188" target="_blank" rel="noopener noreferrer" class="text-primary font-bold text-sm flex items-center space-x-2 group-hover:translate-x-2 transition-transform">
+                        <span>Saiba mais</span>
+                        <span class="text-lg">→</span>
+                    </a>
+                </div>
+                <!-- Service 2 -->
+                <div class="reveal group p-8 bg-zinc-950 border border-zinc-800 rounded-3xl hover:border-primary/50 transition-all hover:-translate-y-2" style="transition-delay: 0.1s;">
+                    <div class="w-14 h-14 bg-zinc-900 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                        <i data-lucide="globe" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Consultoria Online</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8">Planos de treino via app, com suporte direto para você treinar onde quiser.</p>
+                    <a href="https://wa.me/5521992292188" target="_blank" rel="noopener noreferrer" class="text-primary font-bold text-sm flex items-center space-x-2 group-hover:translate-x-2 transition-transform">
+                        <span>Saiba mais</span>
+                        <span class="text-lg">→</span>
+                    </a>
+                </div>
+                <!-- Service 3 -->
+                <div class="reveal group p-8 bg-zinc-950 border border-zinc-800 rounded-3xl hover:border-primary/50 transition-all hover:-translate-y-2" style="transition-delay: 0.2s;">
+                    <div class="w-14 h-14 bg-zinc-900 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                        <i data-lucide="clipboard-check" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Avaliação Física</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8">Análise completa do seu estado atual para traçar a melhor estratégia.</p>
+                    <a href="https://wa.me/5521992292188" target="_blank" rel="noopener noreferrer" class="text-primary font-bold text-sm flex items-center space-x-2 group-hover:translate-x-2 transition-transform">
+                        <span>Saiba mais</span>
+                        <span class="text-lg">→</span>
+                    </a>
+                </div>
+                <!-- Service 4 -->
+                <div class="reveal group p-8 bg-zinc-950 border border-zinc-800 rounded-3xl hover:border-primary/50 transition-all hover:-translate-y-2" style="transition-delay: 0.3s;">
+                    <div class="w-14 h-14 bg-zinc-900 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                        <i data-lucide="heart-pulse" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Saúde e Qualidade</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8">Programas focados em longevidade, mobilidade e bem-estar geral.</p>
+                    <a href="https://wa.me/5521992292188" target="_blank" rel="noopener noreferrer" class="text-primary font-bold text-sm flex items-center space-x-2 group-hover:translate-x-2 transition-transform">
+                        <span>Saiba mais</span>
+                        <span class="text-lg">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-primary z-0"></div>
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 z-0">
+            <div class="absolute -top-24 -left-24 w-96 h-96 border-[40px] border-black rounded-full"></div>
+            <div class="absolute -bottom-24 -right-24 w-96 h-96 border-[40px] border-black rounded-full"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h2 class="text-4xl md:text-6xl font-black text-primary-foreground mb-8 tracking-tighter uppercase">Pronto para dar o primeiro passo?</h2>
+            <p class="text-primary-foreground/80 text-xl md:text-2xl font-medium mb-12 max-w-2xl mx-auto">Não deixe sua saúde para depois. Agende uma conversa agora e descubra como posso te ajudar.</p>
+            <a 
+                href="https://wa.me/5521992292188" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="inline-block bg-zinc-950 text-white px-12 py-6 rounded-full text-xl font-black hover:scale-105 transition-transform shadow-2xl"
+            >
+                Falar com Gabriel no WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="sobre" class="py-24 bg-zinc-950">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 reveal">
+                    <span class="text-primary font-bold tracking-widest uppercase text-sm">Quem é Gabriel Matias</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-8">Compromisso com sua <span class="text-primary">Evolução Real</span></h2>
+                    <div class="space-y-6 text-zinc-400 text-lg leading-relaxed">
+                        <p>Sou personal trainer em Niterói e acredito que o treino vai muito além da estética. Meu foco é proporcionar um acompanhamento humano e técnico para garantir que cada aluno alcance seus objetivos.</p>
+                        <p>Com atendimento presencial em Icaraí e consultoria online, desenvolvo metodologias que se adaptam ao seu nível atual.</p>
+                    </div>
+                    <div class="mt-10 flex flex-wrap gap-6">
+                        <a 
+                            href="https://www.instagram.com/gaabrielmatias_" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="flex items-center space-x-3 text-zinc-300 hover:text-primary transition-colors"
+                        >
+                            <div class="w-10 h-10 bg-zinc-900 rounded-full flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                            </div>
+                            <span class="font-medium">@gaabrielmatias_</span>
+                        </a>
+                        <div class="flex items-center space-x-3 text-zinc-300">
+                            <div class="w-10 h-10 bg-zinc-900 rounded-full flex items-center justify-center">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <span class="font-medium">R. Miguel de Frias, 123 - Icaraí, Niterói</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2 relative reveal">
+                    <div class="aspect-square rounded-full border-2 border-primary/20 p-4 shadow-2xl">
+                        <div class="w-full h-full rounded-full overflow-hidden border-4 border-zinc-900 bg-zinc-900">
+                            <img 
+                                src="file_000000000f9c71f59bdaeeb0e10be4d6.png" 
+                                alt="Gabriel Matias Personal Trainer" 
+                                class="w-full h-full object-cover object-top high-quality-img"
+                                referrerpolicy="no-referrer"
+                            >
+                        </div>
+                    </div>
+                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-primary/10 blur-3xl rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="py-24 bg-zinc-900/30">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-16 reveal">
+                <div class="mb-8 md:mb-0 text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">O que dizem os alunos</h2>
+                    <p class="text-zinc-400">Resultados comprovados por quem treina de verdade.</p>
+                </div>
+                <div class="bg-zinc-950 p-6 rounded-3xl border border-zinc-800 flex items-center space-x-6">
+                    <div class="text-center">
+                        <span class="block text-4xl font-black text-primary leading-none">5.0</span>
+                        <span class="text-[10px] uppercase tracking-widest text-zinc-500 font-bold">Nota Google</span>
+                    </div>
+                    <div class="h-12 w-px bg-zinc-800"></div>
+                    <div>
+                        <div class="flex text-primary mb-1">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <span class="text-sm text-zinc-400 font-medium">Baseado em avaliações reais</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="reveal bg-zinc-950 p-10 rounded-3xl border border-zinc-800 relative">
+                    <i data-lucide="quote" class="absolute top-6 right-6 text-primary/10 w-12 h-12"></i>
+                    <p class="text-lg text-zinc-200 italic leading-relaxed mb-8">"Simpatia em pessoa, profissional e focado."</p>
+                    <span class="font-bold text-zinc-400">Cliente Google</span>
+                </div>
+                <!-- Review 2 -->
+                <div class="reveal bg-zinc-950 p-10 rounded-3xl border border-zinc-800 relative" style="transition-delay: 0.1s;">
+                    <i data-lucide="quote" class="absolute top-6 right-6 text-primary/10 w-12 h-12"></i>
+                    <p class="text-lg text-zinc-200 italic leading-relaxed mb-8">"Dá pra ver o cuidado e a dedicação em cada detalhe!"</p>
+                    <span class="font-bold text-zinc-400">Cliente Google</span>
+                </div>
+                <!-- Review 3 -->
+                <div class="reveal bg-zinc-950 p-10 rounded-3xl border border-zinc-800 relative" style="transition-delay: 0.2s;">
+                    <i data-lucide="quote" class="absolute top-6 right-6 text-primary/10 w-12 h-12"></i>
+                    <p class="text-lg text-zinc-200 italic leading-relaxed mb-8">"Admiro o profissionalismo do Gabriel."</p>
+                    <span class="font-bold text-zinc-400">Cliente Google</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contato" class="py-24 bg-zinc-900/50">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div class="reveal">
+                    <span class="text-primary font-bold tracking-widest uppercase text-sm">Contato</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-8">Vamos começar sua <span class="text-primary">Transformação?</span></h2>
+                    <p class="text-zinc-400 text-lg mb-10">Tire suas dúvidas ou agende agora mesmo.</p>
+                    <div class="space-y-6">
+                        <a 
+                            href="https://wa.me/5521992292188" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="flex items-center space-x-4 p-6 bg-zinc-950 rounded-3xl border border-zinc-800 hover:border-primary/50 transition-all group"
+                        >
+                            <div class="w-12 h-12 bg-green-500/10 text-green-500 rounded-2xl flex items-center justify-center group-hover:bg-green-500 group-hover:text-white transition-colors">
+                                <i data-lucide="phone" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-zinc-500 uppercase font-bold tracking-widest">WhatsApp</span>
+                                <span class="text-xl font-bold">(21) 99229-2188</span>
+                            </div>
+                        </a>
+                        <div class="flex items-center space-x-4 p-6 bg-zinc-950 rounded-3xl border border-zinc-800">
+                            <div class="w-12 h-12 bg-primary/10 text-primary rounded-2xl flex items-center justify-center">
+                                <i data-lucide="map-pin" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-zinc-500 uppercase font-bold tracking-widest">Localização</span>
+                                <span class="text-sm font-bold leading-tight">R. Miguel de Frias, 123 - Icaraí, Niterói</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-zinc-950 p-10 rounded-[2.5rem] border border-zinc-800 shadow-2xl reveal">
+                    <h3 class="text-2xl font-bold mb-8">Envie uma mensagem</h3>
+                    <form class="space-y-6" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso!');">
+                        <input type="text" placeholder="Seu nome" class="w-full bg-zinc-900 border border-zinc-800 rounded-2xl px-6 py-4 focus:outline-none focus:border-primary transition-colors">
+                        <select class="w-full bg-zinc-900 border border-zinc-800 rounded-2xl px-6 py-4 focus:outline-none focus:border-primary transition-colors">
+                            <option>Emagrecimento</option>
+                            <option>Ganho de Massa</option>
+                            <option>Saúde e Qualidade</option>
+                        </select>
+                        <textarea rows="4" placeholder="Como posso te ajudar?" class="w-full bg-zinc-900 border border-zinc-800 rounded-2xl px-6 py-4 focus:outline-none focus:border-primary transition-colors resize-none"></textarea>
+                        <button type="submit" class="w-full bg-primary text-primary-foreground font-black py-5 rounded-2xl text-lg hover:scale-[1.02] transition-transform shadow-lg">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-950 pt-24 pb-12 border-t border-zinc-900">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="lg:col-span-2">
+                    <a href="#home" class="flex flex-col mb-6">
+                        <span class="text-2xl font-bold tracking-tighter text-white">GABRIEL <span class="text-primary">MATIAS</span></span>
+                        <span class="text-xs uppercase tracking-[0.2em] text-zinc-400 font-medium">Personal Trainer Niterói</span>
+                    </a>
+                    <p class="text-zinc-500 max-w-md mb-8 leading-relaxed">Transformando vidas em Niterói através do movimento consciente.</p>
+                    <div class="flex space-x-4">
+                        <a 
+                            href="https://www.instagram.com/gaabrielmatias_" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="w-12 h-12 bg-zinc-900 rounded-2xl flex items-center justify-center text-zinc-400 hover:bg-primary hover:text-primary-foreground transition-all"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        <a 
+                            href="https://wa.me/5521992292188" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="w-12 h-12 bg-zinc-900 rounded-2xl flex items-center justify-center text-zinc-400 hover:bg-green-500 hover:text-white transition-all"
+                        >
+                            <i data-lucide="phone" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-sm">Navegação</h4>
+                    <ul class="space-y-4 text-zinc-500 font-medium">
+                        <li><a href="#home" class="hover:text-primary transition-colors">Início</a></li>
+                        <li><a href="#sobre" class="hover:text-primary transition-colors">Sobre</a></li>
+                        <li><a href="#servicos" class="hover:text-primary transition-colors">Serviços</a></li>
+                        <li><a href="#contato" class="hover:text-primary transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-sm">Localização</h4>
+                    <p class="text-zinc-500 mb-4 leading-relaxed">R. Miguel de Frias, 123 - Icaraí, Niterói</p>
+                </div>
+            </div>
+            <div class="pt-12 border-t border-zinc-900 text-center">
+                <p class="text-zinc-600 text-sm">© <span id="year"></span> Gabriel Matias. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a 
+        href="https://wa.me/5521992292188" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="fixed bottom-8 right-8 z-50 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center group"
+    >
+        <i data-lucide="phone" class="w-8 h-8"></i>
+    </a>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Navbar Scroll Effect
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-zinc-950/90', 'backdrop-blur-md', 'py-4', 'shadow-lg');
+                nav.classList.remove('bg-transparent', 'py-6');
+            } else {
+                nav.classList.remove('bg-zinc-950/90', 'backdrop-blur-md', 'py-4', 'shadow-lg');
+                nav.classList.add('bg-transparent', 'py-6');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const xIcon = document.getElementById('x-icon');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            xIcon.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                xIcon.classList.add('hidden');
+            });
+        });
+
+        // Reveal Animation on Scroll
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>
